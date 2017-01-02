@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>newTeamServlet</servlet-name>
+        <servlet-class>com.gioAlexiou.db2FirstTry.newTeamServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>uploadServlet</servlet-name>
+        <servlet-class>com.gioAlexiou.db2FirstTry.uploadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>newPlayerServlet</servlet-name>
+        <servlet-class>com.gioAlexiou.db2FirstTry.newPlayerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>newMatchDataServlet</servlet-name>
+        <servlet-class>com.gioAlexiou.db2FirstTry.newMatchDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newTeamServlet</servlet-name>
+        <url-pattern>/newTeamServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>uploadServlet</servlet-name>
+        <url-pattern>/uploadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>newPlayerServlet</servlet-name>
+        <url-pattern>/newPlayerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>newMatchDataServlet</servlet-name>
+        <url-pattern>/newMatchDataServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

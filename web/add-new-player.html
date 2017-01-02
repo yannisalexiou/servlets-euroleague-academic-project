@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Databases 2 / Add New Player</title>
+
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+	
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    
+    <style>
+		.box
+		{
+			border:  1px solid gray;
+			background-color:#d3d3d3;
+		}   
+	</style>
+	
+  </head>
+  <body>
+	  <!--navbar-inverse για σκουρόχρωμη navbar -->
+	  <div class="navbar navbar-light bg-faded">
+		  
+		  <div class="container">
+			  
+			  <div class="navbar-header">
+				  
+				  <a href="/DB2FirstTry/index.html" class="navbar-brand mb-0">Basketball Analytics</a>
+				  
+			  </div>
+			  
+		  </div>
+		  
+	  </div>
+	  
+	  
+	  <!--Πάντα το main content σε container-->
+	  <div class="container">
+		  <h1 class="display-3">Add New Player</h1>
+		  
+		  <!--Αν βάλω class"form-inline" στις μεγάλες οθόνες θα φαίνεται η form σε σειρά -->
+		  <form action="uploadPlayer" method="POST" enctype="multipart/form-data">
+			  
+			  <div class="form-group has-warning">
+				  
+				  <label for="id">ID</label>
+				  <input type="text" class="form-control" name="id" placeholder="Enter Primary ID Number for DB" aria-describedby="idHelpInline"/>
+                                  <small id="idHelpInline" class="text-muted">Must be integer. This is the primary key in table PLAYER.</small>
+			  
+			  </div>
+			  
+			  <div class="form-group has-warning">
+				  
+				  <label for="number">Number</label>
+				  <input type="text" class="form-control" name="number" placeholder="Number on Shirt" aria-describedby="numberHelpInline"/>
+                                  <small id="numberHelpInline" class="text-muted">Must be integer.</small>
+			  
+			  </div>
+			  
+			  <div class="form-group has-warning">
+				  
+				  <label for="playerName">Player's Name</label>
+			  
+				  <input type="text" class="form-control" name="playerName" placeholder="Enter Player's Name" aria-describedby="playerNameHelpInline"/>
+                                  <small id="playerNameHelpInline" class="text-muted">Can't be blank.</small>
+			  
+			  </div>
+			  
+			  <div class="form-group">
+				  <p>Player's Photo</p>
+				  <label class="custom-file" for="playerPhoto">
+				  <input type="file" name="playerPhoto" id="playerPhoto" class="custom-file-input" aria-describedby="fileHelp">
+				  <span class="custom-file-control"></span>
+				  <!--<input type="file" class="form-control-file" id="teamLogo" aria-describedby="fileHelp">-->
+				  </label>
+			    
+			  </div>
+			  
+			  <div class="form-group">
+				  
+				  <label for="playerTeam">Player's Team</label>
+				  <input type="text" class="form-control" name="playerTeam" placeholder="Enter Player's Team Name"/>
+			  
+			  </div>
+			  
+			  <div class="form-group has-warning">
+				  
+				  <label for="playerHeight">Player's Height</label>
+				  <input type="text" class="form-control" name="playerHeight" placeholder="Enter Player's Height" aria-describedby="playerHeightHelpInline"/>
+                                  <small id="playerHeightHelpInline" class="text-muted">Must be a number with size: 3 and 2 decimal digits.</small>
+			  
+			  </div>
+			  
+			  <div class="form-group has-warning">
+				  
+				  <label for="playerNationality">Player's Nationality</label>
+				  <input type="text" class="form-control" name="playerNationality" placeholder="Enter Player's Nationality" aria-describedby="playerNationalityHelpInline"/>
+                                  <small id="playerNationalityHelpInline" class="text-muted">Can't be blank.</small>
+			  
+			  </div>
+			  
+			  <div class="form-group">
+				  
+				  <label for="playerPosition">Player's Position</label>
+				  <input type="text" class="form-control" name="playerPosition" placeholder="Enter Player's Position"/>
+			  
+			  </div>
+			  
+			  <div class="form-group has-warning">
+				  <label for="playerBordDate">Player's Born Date</label>
+                                  <p>
+                                      <input type="date" name="playerBordDate" aria-describedby="playerBordDateHelpInline">
+                                      <br/><small id="playerBordDateHelpInline" class="text-muted">Can't be blank.</small>
+                                  </p>
+				  
+			  </div>
+			  
+			  
+			  <input class="btn btn-primary" type="submit" value="Submit">
+			  
+			  <hr>
+			  <p></p>
+		  </form>
+                  
+                  <div class="row">
+			  <ol class="breadcrumb">
+				  <li class="breadcrumb-item"><a href="/DB2FirstTry/index.html">Home</a></li>
+				  <li class="breadcrumb-item active">Add New Player</li>
+			  </ol>
+		  </div>
+                  
+	  </div>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  </body>
+</html>

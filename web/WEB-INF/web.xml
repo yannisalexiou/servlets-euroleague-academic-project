@@ -5,10 +5,6 @@
         <servlet-class>com.gioAlexiou.db2FirstTry.newTeamServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>uploadServlet</servlet-name>
-        <servlet-class>com.gioAlexiou.db2FirstTry.uploadServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>newPlayerServlet</servlet-name>
         <servlet-class>com.gioAlexiou.db2FirstTry.newPlayerServlet</servlet-class>
     </servlet>
@@ -16,13 +12,21 @@
         <servlet-name>newMatchDataServlet</servlet-name>
         <servlet-class>com.gioAlexiou.db2FirstTry.newMatchDataServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TeamStats</servlet-name>
+        <servlet-class>com.gioAlexiou.db2FirstTry.TeamStatsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MoreServlet</servlet-name>
+        <servlet-class>com.gioAlexiou.db2FirstTry.MoreServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PlayerStatsServlet</servlet-name>
+        <servlet-class>com.gioAlexiou.db2FirstTry.PlayerStatsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>newTeamServlet</servlet-name>
         <url-pattern>/newTeamServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>uploadServlet</servlet-name>
-        <url-pattern>/uploadServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>newPlayerServlet</servlet-name>
@@ -31,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>newMatchDataServlet</servlet-name>
         <url-pattern>/newMatchDataServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeamStats</servlet-name>
+        <url-pattern>/TeamStats</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MoreServlet</servlet-name>
+        <url-pattern>/MoreServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PlayerStatsServlet</servlet-name>
+        <url-pattern>/PlayerStatsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

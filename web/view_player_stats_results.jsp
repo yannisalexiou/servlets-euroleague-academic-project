@@ -31,44 +31,111 @@
 			border:  1px solid gray;
 			background-color:#d3d3d3;
                         }
-                        .chart {
+                        .chart 
+                        {
                             width: 100%; 
                             min-height: 450px;
-                          }
+                        }
+                        .gauge
+                        {
+                            width: 400px;
+                            height: 120px;
+                        }
 		</style>
                 
                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                 <script type="text/javascript">
-                  google.charts.load('current', {'packages':['bar']});
-                  google.charts.setOnLoadCallback(drawStuff);
+                    google.charts.load('current', {'packages':['bar', 'gauge']});
+                    
+                    google.charts.setOnLoadCallback(drawStuff);
+                    google.charts.setOnLoadCallback(drawChart);
+                    google.charts.setOnLoadCallback(drawChart2);
+                    google.charts.setOnLoadCallback(drawChart3);
 
-                  function drawStuff() {
-                    var data = new google.visualization.arrayToDataTable([
-                      ['Stats', 'Sum'],
-                      ['Total Points', ${pointsSum}],
-                      ["Total Rebounds", ${reboundsStopSum}],
-                      ["Blocks Fv", ${blocksFvSum}],
-                      ["Mistakes", ${mistakesSum}]
-                    ]);
+                    function drawStuff() {
+                      var data = new google.visualization.arrayToDataTable([
+                        ['Stats', 'Sum'],
+                        ['Total Points', ${pointsSum}],
+                        ["Total Rebounds", ${reboundsStopSum}],
+                        ["Blocks Fv", ${blocksFvSum}],
+                        ["Mistakes", ${mistakesSum}]
+                      ]);
 
-                    var options = {
-                      title: '${PlayerNameSelected} Stats',
-                      width: 900,
-                      legend: { position: 'none' },
-                      chart: { title: '${PlayerNameSelected} Stats',
-                               subtitle: 'Game Stats' },
-                      bars: 'horizontal', // Required for Material Bar Charts.
-                      axes: {
-                        x: {
-                          0: { side: 'top', label: 'Sum'} // Top x-axis.
-                        }
-                      },
-                      bar: { groupWidth: "90%" }
-                    };
+                      var options = {
+                        title: '${PlayerNameSelected} Stats',
+                        width: 900,
+                        legend: { position: 'none' },
+                        chart: { title: '${PlayerNameSelected} Stats',
+                                 subtitle: 'Game Stats' },
+                        bars: 'horizontal', // Required for Material Bar Charts.
+                        axes: {
+                          x: {
+                            0: { side: 'top', label: 'Sum'} // Top x-axis.
+                          }
+                        },
+                        bar: { groupWidth: "90%" }
+                      };
 
-                    var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-                    chart.draw(data, options);
-                  };
+                      var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+                      chart.draw(data, options);
+                    }
+                  
+                    function drawChart() {
+
+                      var data = google.visualization.arrayToDataTable([
+                        ['Label', 'Value'],
+                        ['Two Points', ${twoPointsScoreSun}]
+                      ]);
+
+                      var options = {
+                        width: 400, height: 120,
+                        redFrom: ${twoPointsTotalSum} - 2, redTo: ${twoPointsTotalSum},
+                        yellowFrom:${twoPointsTotalSum} - 5, yellowTo: ${twoPointsTotalSum} - 2,
+                        minorTicks: 50
+                      };
+
+                      var chart = new google.visualization.Gauge(document.getElementById('TwoPointsGauge'));
+
+                      chart.draw(data, options);
+                    }
+                    
+                    function drawChart2() {
+
+                      var data = google.visualization.arrayToDataTable([
+                        ['Label', 'Value'],
+                        ['Three Points', ${threePointsScoreSum}]
+                      ]);
+
+                      var options = {
+                        width: 400, height: 120,
+                        redFrom: ${threePointsTotalSum} - 2, redTo: ${threePointsTotalSum},
+                        yellowFrom:${threePointsTotalSum} - 5, yellowTo: ${threePointsTotalSum} - 2,
+                        minorTicks: 50
+                      };
+
+                      var chart = new google.visualization.Gauge(document.getElementById('ThreePointsGauge'));
+
+                      chart.draw(data, options);
+                    }
+                    
+                    function drawChart3() {
+
+                      var data = google.visualization.arrayToDataTable([
+                        ['Label', 'Value'],
+                        ['Free Throws', ${freeThrowScoreSum}]
+                      ]);
+
+                      var options = {
+                        width: 400, height: 120,
+                        redFrom: ${freeThrowTotalSum} - 2, redTo: ${freeThrowTotalSum},
+                        yellowFrom:${freeThrowTotalSum} - 5, yellowTo: ${freeThrowTotalSum} - 2,
+                        minorTicks: 50
+                      };
+
+                      var chart = new google.visualization.Gauge(document.getElementById('FreeThrowGauge'));
+
+                      chart.draw(data, options);
+                    }
                 </script>
                 
                 
@@ -156,9 +223,38 @@
 				</table>
 			</div>
                                         
-            <div class="form-group row">
+            <div class="row">
                 <div id="top_x_div" class="chart"></div>
+                <br/>
             </div>
+                        
+            <div class="row">
+                <div class="col-md-4"><div id="TwoPointsGauge" class="gauge"></div></div>
+                <div class="col-md-4"><div id="ThreePointsGauge" class="gauge"></div></div>
+                <div class="col-md-4"><div id="FreeThrowGauge" class="gauge"></div></div>
+                <br/>
+            </div>
+            <hr/>
+            <br/>
+            <h2>${PlayerNameSelected} Ranking Position</h2>
+            <table class="table">
+            <thead>
+              <tr>
+                <th>Index PIR</th>
+                <th>Points</th>
+                <th>Rebounds</th>
+                <th>Mistakes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>${playerPirRankingPosition}</td>
+                <td>${playerPointsRankingPosition}</td>
+                <td>${playerReboundsRankingPosition}</td>
+                <td>${playerMistakesRankingPosition}</td>
+              </tr>
+            </tbody>
+          </table>
 			
 			<div class="row">
 			  <ol class="breadcrumb">
@@ -175,4 +271,3 @@
 	
 	</body>
 </html>
-

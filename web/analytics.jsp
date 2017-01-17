@@ -133,7 +133,7 @@
 				<img class="card-img-top scaleZoom" src="Images/DreamTeam.jpg" alt="Card image cap">
 					<div class="card-block">
 					<h4 class="card-title">Dream Team</h4>
-					<form id="GetTeamId" name="GetTeam" action="SelectTeamForData" method="POST" enctype="multipart/form-data">
+					<form id="GetTeamId" name="GetTeam" action="#" method="POST" enctype="multipart/form-data">
 						<p class="card-text">Best 5 Players (2 Guards, 2 Forwards and 1 Center).</p>
 						<input class="btn btn-primary" type="submit" value="The best of the best are...">
 					</form>
@@ -150,7 +150,7 @@
 				<img class="card-img-top scaleZoom" src="Images/Finals.jpg" alt="Card image cap">
 					<div class="card-block">
 					<h4 class="card-title">Next Stage</h4>
-					<form id="GetTeamId" name="GetTeam" action="SelectTeamForData" method="POST" enctype="multipart/form-data">
+					<form id="GetTeamId" name="GetTeam" action="#" method="POST" enctype="multipart/form-data">
 						<p class="card-text">See the results for the next 8 best teams!</p>
 						<input class="btn btn-primary" type="submit" value="Go to Finals">
 					</form>

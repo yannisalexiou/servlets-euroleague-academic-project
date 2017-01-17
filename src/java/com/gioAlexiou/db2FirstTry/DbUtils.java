@@ -304,15 +304,15 @@ public class DbUtils
         return playerStats;
     }
     
-    String PlayerRankingIndex(String query)
+    String playerRankingIndex(String query)
     {
         connectToDB();
         String rankingPosition = "0";
         try 
         {
-            String retrievePlayerRanking = "SELECT ID, NUM, NAME FROM PLAYER";
+            //String retrievePlayerRanking = "SELECT ID, NUM, NAME FROM PLAYER";
             statement = conn.createStatement();
-            resultSet = statement.executeQuery(retrievePlayerRanking);
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()) 
             {
                 rankingPosition = resultSet.getString(1);

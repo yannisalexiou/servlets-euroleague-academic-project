@@ -16,19 +16,33 @@
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-	
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        
 	<style>
             .box
             {
                     border:  1px solid gray;
                     background-color:#d3d3d3;
             }
+            
+            body
+            {
+                background-color: #e6e6e6;
+            }
 
             .imageScale
             {
                     height: 180px;
                     background: #ffffff;
+            }
+            
+            .scaleZoom
+            {
+                object-fit: cover;
+                width: 100%;
+                height: 180px;
             }
 	</style>
 
@@ -46,13 +60,13 @@
 		
 	<!--Πάντα το main content σε container-->
 	<div class="container">
-		<p></p>
+            <p></p>
 		<div class="row">
-			<div class="col-md-4 ">
+			<div class="col-md-4">
 			<div class="card text-center">
-				<img class="card-img-top imageScale" src="Images/teams.jpg" alt="Card image cap">
+				<img class="card-img-top scaleZoom" src="Images/teams.jpg" alt="Card image cap">
 				<div class="card-block">
-					<h4 class="card-title">Team Stats</h4>
+					<h4 class="card-title" >Team Stats</h4>
 					<form id="GetTeamId" name="GetTeam" action="TeamStatsResults" method="POST" enctype="multipart/form-data">
 						<div class="form-group row">
 								<select  class="form-control text-center" id="testMe" name="teamNameSelected">
@@ -69,9 +83,9 @@
 			</div>
 			</div>
 			
-			<div class="col-md-4 ">
+			<div class="col-md-4">
 			<div class="card text-center">
-				<img class="card-img-top imageScale" src="Images/player.jpg" alt="Card image cap">
+				<img class="card-img-top scaleZoom" src="Images/player.jpg" alt="Card image cap">
 				<div class="card-block">
 					<h4 class="card-title">Player Stats</h4>
 					<form id="GetPlayerStatsId" name="GetPlayerStats" action="PlayerStatsResults" method="POST" enctype="multipart/form-data">
@@ -84,23 +98,21 @@
 						</div>
 						
 						<p class="card-text">How good is your favourite player?</p>
-						<input class="btn btn-primary" type="submit" value="Go">
+						<input class="btn btn-primary" type="submit" value="Let's see">
 					</form>
 				</div>
 			</div>
 			</div>
 			
-			<div class="col-md-4 ">
+			<div class="col-md-4">
 			<div class="card text-center">
-				<img class="card-img-top imageScale" src="Images/best5.jpg" alt="Card image cap">
+				<img class="card-img-top scaleZoom" src="Images/best5.jpg" alt="Card image cap">
 				<div class="card-block">
 					<h4 class="card-title">Best 5 Player of a Round</h4>
-					<form id="GetTeamId" name="GetTeam" action="SelectTeamForData" method="POST" enctype="multipart/form-data">
+					<form id="GetTeamId" name="GetTeam" action="#" method="POST" enctype="multipart/form-data">
 						<div class="form-group row">
 								<select  class="form-control text-center" id="testMe" name="teamNameSelected">
-									<c:forEach var="tempTeamName" items="${team_names_arraylist}">
-										<option>${tempTeamName}</option>
-									</c:forEach>
+                                                                    <option>Under Construction</option>
 								</select>
 						</div>
 						
@@ -109,8 +121,42 @@
 					</form>
 				</div>
 			</div>
+			<p></p>
 			</div>
 			
+			
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card text-center">
+				<img class="card-img-top scaleZoom" src="Images/DreamTeam.jpg" alt="Card image cap">
+					<div class="card-block">
+					<h4 class="card-title">Dream Team</h4>
+					<form id="GetTeamId" name="GetTeam" action="SelectTeamForData" method="POST" enctype="multipart/form-data">
+						<p class="card-text">Best 5 Players (2 Guards, 2 Forwards and 1 Center).</p>
+						<input class="btn btn-primary" type="submit" value="The best of the best are...">
+					</form>
+					</div>
+				</div>
+				<p></p>
+			</div>
+			
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+                            <div class="card text-center " >
+				<img class="card-img-top scaleZoom" src="Images/Finals.jpg" alt="Card image cap">
+					<div class="card-block">
+					<h4 class="card-title">Next Stage</h4>
+					<form id="GetTeamId" name="GetTeam" action="SelectTeamForData" method="POST" enctype="multipart/form-data">
+						<p class="card-text">See the results for the next 8 best teams!</p>
+						<input class="btn btn-primary" type="submit" value="Go to Finals">
+					</form>
+					</div>
+				</div>
+			</div>
 			
 		</div>
 			
@@ -122,7 +168,7 @@
 	</div>
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+        
 </body>
 </html>

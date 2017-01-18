@@ -66,6 +66,7 @@
 				  <thead>
 				    <tr>
 				      <th>#</th>
+                                      <th>PIR</th>
 				      <th>Name</th>
 				      <th>Team</th>
 				      <th>Nationality</th>
@@ -75,6 +76,7 @@
 				    <c:forEach var="best5InIndexRatingItem" items="${requestScope.best5InIndexRatingArraylist}" > 
 	                    <tr>
 	                      <td>${best5InIndexRatingItem.rowNumber}</td>
+                              <td>${best5InIndexRatingItem.statistic}</td>
 	                      <td>${best5InIndexRatingItem.playerName}</td>
 	                      <td>${best5InIndexRatingItem.playerTeam}</td>
 	                      <td>${best5InIndexRatingItem.playerNationality}</td>
@@ -93,6 +95,7 @@
 				  <thead>
 				    <tr>
 				      <th>#</th>
+                                      <th>Points</th>
 				      <th>Name</th>
 				      <th>Team</th>
 				      <th>Nationality</th>
@@ -102,6 +105,7 @@
 				    <c:forEach var="best5InPointsItem" items="${requestScope.best5InPointsArraylist}" > 
 	                    <tr>
 	                      <td>${best5InPointsItem.rowNumber}</td>
+                              <td>${best5InIndexRatingItem.statistic}</td>
 	                      <td>${best5InPointsItem.playerName}</td>
 	                      <td>${best5InPointsItem.playerTeam}</td>
 	                      <td>${best5InPointsItem.playerNationality}</td>
@@ -120,6 +124,7 @@
 				  <thead>
 				    <tr>
 				      <th>#</th>
+                                      <th>Rebounds</th>
 				      <th>Name</th>
 				      <th>Team</th>
 				      <th>Nationality</th>
@@ -129,6 +134,7 @@
 				    <c:forEach var="best5InReboundsItem" items="${requestScope.best5InReboundsArrayList}" > 
 	                    <tr>
 	                      <td>${best5InReboundsItem.rowNumber}</td>
+                              <td>${best5InIndexRatingItem.statistic}</td>
 	                      <td>${best5InReboundsItem.playerName}</td>
 	                      <td>${best5InReboundsItem.playerTeam}</td>
 	                      <td>${best5InReboundsItem.playerNationality}</td>
@@ -147,6 +153,7 @@
 				  <thead>
 				    <tr>
 				      <th>#</th>
+                                      <th>Blocks</th>
 				      <th>Name</th>
 				      <th>Team</th>
 				      <th>Nationality</th>
@@ -156,6 +163,7 @@
 				    <c:forEach var="best5InBlocksItem" items="${requestScope.best5InBlocksArrayList}" > 
 	                    <tr>
 	                      <td>${best5InReboundsItem.rowNumber}</td>
+                              <td>${best5InIndexRatingItem.statistic}</td>
 	                      <td>${best5InReboundsItem.playerName}</td>
 	                      <td>${best5InReboundsItem.playerTeam}</td>
 	                      <td>${best5InReboundsItem.playerNationality}</td>
@@ -174,6 +182,7 @@
 				  <thead>
 				    <tr>
 				      <th>#</th>
+                                      <th>Assists</th>
 				      <th>Name</th>
 				      <th>Team</th>
 				      <th>Nationality</th>
@@ -183,6 +192,7 @@
 				    <c:forEach var="best5inAssitsItem" items="${requestScope.best5InAssitsArrayList}" > 
 	                    <tr>
 	                      <td>${best5inAssitsItem.rowNumber}</td>
+                              <td>${best5InIndexRatingItem.statistic}</td>
 	                      <td>${best5inAssitsItem.playerName}</td>
 	                      <td>${best5inAssitsItem.playerTeam}</td>
 	                      <td>${best5inAssitsItem.playerNationality}</td>

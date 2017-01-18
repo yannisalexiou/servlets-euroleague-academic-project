@@ -11,22 +11,23 @@ package com.gioAlexiou.db2FirstTry;
  */
 public class BestFiveInRound 
 {
-    private String rowNumber;
+    private int rowNumber;
     private String playerName;
     private String playerTeam;
     private String playerNationality;
+    private int statistic;
 
     /**
      * @return the rowNumber
      */
-    public String getRowNumber() {
+    public int getRowNumber() {
         return rowNumber;
     }
 
     /**
      * @param rowNumber the rowNumber to set
      */
-    public void setRowNumber(String rowNumber) {
+    public void setRowNumber(int rowNumber) {
         this.rowNumber = rowNumber;
     }
 
@@ -70,6 +71,20 @@ public class BestFiveInRound
      */
     public void setPlayerNationality(String playerNationality) {
         this.playerNationality = playerNationality;
+    }
+
+    /**
+     * @return the statistic
+     */
+    public int getStatistic() {
+        return statistic;
+    }
+
+    /**
+     * @param statistic the statistic to set
+     */
+    public void setStatistic(int statistic) {
+        this.statistic = statistic;
     }
     
     

@@ -261,6 +261,29 @@ public class DbUtils
         return retrievedPlayerName;
     }
     
+    Player returnPlayerFromPlayerId(int playerId) 
+    {
+        connectToDB();
+        Player retrievedPlayerName = new Player();
+        try 
+        {
+            String selectAllPlayers = "SELECT NAME, TEAM, NATIONALITY FROM PLAYER WHERE ID =\'" + playerId + "\'";
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery(selectAllPlayers);
+            while (resultSet.next()) 
+            {
+                retrievedPlayerName.name = resultSet.getString(1);
+                retrievedPlayerName.team = resultSet.getString(2);
+                retrievedPlayerName.nationality = resultSet.getString(3);
+            }
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+        return retrievedPlayerName;
+    }
+    
     ArrayList<Player> returnAllPlayers() 
     {
         connectToDB();
@@ -332,7 +355,6 @@ public class DbUtils
         String rankingPosition = "0";
         try 
         {
-            //String retrievePlayerRanking = "SELECT ID, NUM, NAME FROM PLAYER";
             statement = conn.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) 
@@ -350,5 +372,34 @@ public class DbUtils
         }
         
         return rankingPosition;
+    }
+    
+    ArrayList<RetrievedBestFiveData> returnBestFive(String round, String category) 
+    {
+        connectToDB();
+        ArrayList<RetrievedBestFiveData> bestFive = new ArrayList<>();
+        
+        //String bestFiveQuery = "SELECT * FROM (SELECT PLAYERID, \'" + category + "\' FROM GAMDEDATA ORDER BY \'" + category + "\' DESC WHERE GAMEID IN (SELECT GAMEID FROM GAME WHERE ROUND = \'" + round + "\')) WHERE ROWNUM <= 5 '";
+        String bestFiveQuery = "SELECT * FROM (SELECT PLAYERID, \'" + category + "\' FROM GAMEDATA WHERE GAMEID IN (SELECT ID FROM GAME WHERE ROUND =\'" + round + "\') ORDER BY \'" + category + "\' DESC) WHERE ROWNUM <=5";
+        try 
+        {
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery(bestFiveQuery);
+            int rowNumber = 1;
+            while (resultSet.next()) 
+            {
+                RetrievedBestFiveData returnStatement = new RetrievedBestFiveData();
+                returnStatement.rowNumber = rowNumber;
+                returnStatement.playerId = resultSet.getInt(1);
+                returnStatement.statistic = resultSet.getInt(2);
+                bestFive.add(returnStatement);
+                rowNumber = rowNumber + 1;
+            }
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+        return bestFive;
     }
 }

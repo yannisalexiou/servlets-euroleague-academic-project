@@ -134,16 +134,6 @@ public class newTeamServlet extends HttpServlet
         //Step 3: Saving our image local
         System.out.println("Absolute Path:" + new File(".").getAbsolutePath());
         
-        final Path destination = Paths.get("/Applications/NetBeans/glassfish-4.0/glassfish/domains/domain1/config/" + fileName);
-        
-        try ( final InputStream in = filePart.getInputStream(); ) 
-        {
-            Files.copy(in, destination, StandardCopyOption.REPLACE_EXISTING); //Replace Existing file
-            //Files.copy(in, destination); //without replace
-        }
-        
-        System.out.println("Uploaded file successfully saved in " + destination);
-        
         //Connect to Server
         ConnectToDB();
         try {

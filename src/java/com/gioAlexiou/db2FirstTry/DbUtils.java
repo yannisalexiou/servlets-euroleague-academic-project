@@ -379,7 +379,6 @@ public class DbUtils
         connectToDB();
         ArrayList<RetrievedBestFiveData> bestFive = new ArrayList<>();
         
-        //String bestFiveQuery = "SELECT * FROM (SELECT PLAYERID, \'" + category + "\' FROM GAMDEDATA ORDER BY \'" + category + "\' DESC WHERE GAMEID IN (SELECT GAMEID FROM GAME WHERE ROUND = \'" + round + "\')) WHERE ROWNUM <= 5 '";
         String bestFiveQuery = "SELECT * FROM (SELECT PLAYERID, \'" + category + "\' FROM GAMEDATA WHERE GAMEID IN (SELECT ID FROM GAME WHERE ROUND =\'" + round + "\') ORDER BY \'" + category + "\' DESC) WHERE ROWNUM <=5";
         try 
         {

@@ -58,6 +58,7 @@ public class MoreServlet extends HttpServlet {
         DbUtils dbConnection = new DbUtils();
         ArrayList<String> teamNames =  dbConnection.returnTeamNameFromTeam();
         ArrayList<Player> allPlayers = dbConnection.returnAllPlayers();
+        ArrayList<String> allRounds = dbConnection.returnRoundsFromGame();
         
         ArrayList<String> playersName = new ArrayList();
         String newPlayer;
@@ -72,6 +73,7 @@ public class MoreServlet extends HttpServlet {
         //Step 2: Add Students to request object
         request.setAttribute("team_names_arraylist", teamNames);
         request.setAttribute("player_names_arraylist", playersName);
+        request.setAttribute("round_number_arraylist", allRounds);
 
         //Step 3: Get Request dispatcher
         RequestDispatcher dispatcher = request.getRequestDispatcher("/analytics.jsp");

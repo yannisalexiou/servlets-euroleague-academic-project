@@ -73,6 +73,28 @@ public class DbUtils
         return teamNames;
     }
     
+    public ArrayList<String> returnRoundsFromGame() 
+    {
+        connectToDB();
+        ArrayList<String> allRounds = new ArrayList<>();
+        try 
+        {
+            String selectTeamNameFromTeam = "SELECT ROUND FROM GAME";
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery(selectTeamNameFromTeam);
+            while (resultSet.next()) 
+            {
+                String returnStatement = resultSet.getString(1);
+                allRounds.add(returnStatement);
+            }
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+        return allRounds;
+    }
+    
     
     int teamScoreCalculation(String team, int id) throws SQLException
     {

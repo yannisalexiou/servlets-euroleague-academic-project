@@ -69,7 +69,7 @@
 					<h4 class="card-title" >Team Stats</h4>
 					<form id="GetTeamId" name="GetTeam" action="TeamStatsResults" method="POST" enctype="multipart/form-data">
 						<div class="form-group row">
-								<select  class="form-control text-center" id="testMe" name="teamNameSelected">
+								<select  class="form-control text-center" name="teamNameSelected">
 									<c:forEach var="tempTeamName" items="${team_names_arraylist}">
 										<option>${tempTeamName}</option>
 									</c:forEach>
@@ -90,7 +90,7 @@
 					<h4 class="card-title">Player Stats</h4>
 					<form id="GetPlayerStatsId" name="GetPlayerStats" action="PlayerStatsResults" method="POST" enctype="multipart/form-data">
 						<div class="form-group row">
-								<select  class="form-control text-center" id="testMe" name="PlayerNameSelected">
+								<select  class="form-control text-center" name="PlayerNameSelected">
 									<c:forEach var="tempPlayerName" items="${player_names_arraylist}">
 										<option>${tempPlayerName}</option>
 									</c:forEach>
@@ -109,10 +109,12 @@
 				<img class="card-img-top scaleZoom" src="Images/best5.jpg" alt="Card image cap">
 				<div class="card-block">
 					<h4 class="card-title">Best 5 Player of a Round</h4>
-					<form id="GetTeamId" name="GetTeam" action="#" method="POST" enctype="multipart/form-data">
+					<form id="GetTeamId" name="GetRound" action="BestFiveInRoundPlayersResults" method="POST" enctype="multipart/form-data">
 						<div class="form-group row">
-								<select  class="form-control text-center" id="testMe" name="teamNameSelected">
-                                                                    <option>Under Construction</option>
+								<select  class="form-control text-center" name="roundNumberSelected">
+                                                                    <c:forEach var="tempRoudNumber" items="${round_number_arraylist}">
+                                                                        <option>${tempRoundNumber}</option>
+                                                                    </c:forEach>
 								</select>
 						</div>
 						

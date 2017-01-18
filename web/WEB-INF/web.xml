@@ -24,6 +24,10 @@
         <servlet-name>PlayerStatsServlet</servlet-name>
         <servlet-class>com.gioAlexiou.db2FirstTry.PlayerStatsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BestFiveInRoundPlayersServlet</servlet-name>
+        <servlet-class>com.gioAlexiou.db2FirstTry.BestFiveInRoundPlayersServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>newTeamServlet</servlet-name>
         <url-pattern>/newTeamServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>PlayerStatsServlet</servlet-name>
         <url-pattern>/PlayerStatsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BestFiveInRoundPlayersServlet</servlet-name>
+        <url-pattern>/BestFiveInRoundPlayersServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

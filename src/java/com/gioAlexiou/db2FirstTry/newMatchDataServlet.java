@@ -61,6 +61,7 @@ public class newMatchDataServlet extends HttpServlet {
     String password = "icsd11138";
     
     String id;
+    String round;
     String homeTeam;
     String awayTeam;
     String gameDateTime;
@@ -106,6 +107,7 @@ public class newMatchDataServlet extends HttpServlet {
         fileContent = null;
         
         id = request.getParameter("id");
+        round = request.getParameter("round");
         homeTeam = request.getParameter("homeTeam");
         awayTeam = request.getParameter("awayTeam");
         gameDateTime = request.getParameter("gameDateTime");
@@ -134,6 +136,7 @@ public class newMatchDataServlet extends HttpServlet {
         {
             insertMatchToDb();
             
+            //Insert Text Files to Db
             insertGameDataToDB(homeTeamFilePart);
             insertGameDataToDB(awayTeamFilePart);
             
@@ -145,6 +148,7 @@ public class newMatchDataServlet extends HttpServlet {
         
         //Step 5: Add retrieved data to attributes
         request.setAttribute("id", id);
+        request.setAttribute("round", round);
         request.setAttribute("homeTeam", homeTeam);
         request.setAttribute("awayTeam", awayTeam);
         request.setAttribute("gameDateTime", gameDateTime);
@@ -225,12 +229,13 @@ public class newMatchDataServlet extends HttpServlet {
         {
             
             String insertNewGameQuery = "INSERT INTO GAME"
-				+ "(ID, HOMETEAM, AWAYTEAM, GAMEDATETIME, ARENA, ATTENDEES) VALUES"
-				+ "(?,?,?,?,?,?)";
+				+ "(ID, ROUND, HOMETEAM, AWAYTEAM, GAMEDATETIME, ARENA, ATTENDEES) VALUES"
+				+ "(?,?,?,?,?,?,?)";
 
             preparedStatement = conn.prepareStatement(insertNewGameQuery);
             
             Integer idToDB = Integer.parseInt(id);
+            Integer roundToDB = Integer.parseInt(round);
             Integer attendeesToDB = Integer.parseInt(attendees);
             
             //Date Time Retrieved Template 1999-12-10T22:48
@@ -248,11 +253,12 @@ public class newMatchDataServlet extends HttpServlet {
             }
             
             preparedStatement.setInt(1, idToDB);
-            preparedStatement.setString(2, homeTeam);
-            preparedStatement.setString(3, awayTeam);
-            preparedStatement.setDate(4, new java.sql.Date(date.getTime()));
-            preparedStatement.setString(5, arena);
-            preparedStatement.setInt(6, attendeesToDB);
+            preparedStatement.setInt(2, roundToDB);
+            preparedStatement.setString(3, homeTeam);
+            preparedStatement.setString(4, awayTeam);
+            preparedStatement.setDate(5, new java.sql.Date(date.getTime()));
+            preparedStatement.setString(6, arena);
+            preparedStatement.setInt(7, attendeesToDB);
 
             // execute insert SQL stetement
             preparedStatement.executeUpdate();

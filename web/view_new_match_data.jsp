@@ -68,6 +68,13 @@
 			    <p class="form-control-static mb-0">${id}</p>
 			  </div>
 		  </div>
+                          
+                  <div class="form-group row">
+			  <label for="example-text-input" class="col-xs-2 col-form-label">Round</label>
+			  <div class="col-xs-10">
+			    <p class="form-control-static mb-0">${round}</p>
+			  </div>
+		  </div>
 		  <div class="form-group row">
 			  <label for="example-search-input" class="col-xs-2 col-form-label">Home Team</label>
 			  <div class="col-xs-10">

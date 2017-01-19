@@ -113,7 +113,7 @@
 						<div class="form-group row">
 								<select  class="form-control text-center" name="roundNumberSelected">
                                                                     <c:forEach var="tempRoudNumber" items="${round_number_arraylist}">
-                                                                        <option>${tempRoundNumber}</option>
+                                                                        <option>${tempRoudNumber}</option>
                                                                     </c:forEach>
 								</select>
 						</div>

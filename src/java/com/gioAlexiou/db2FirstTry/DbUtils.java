@@ -101,7 +101,7 @@ public class DbUtils
         int finalScore = 0;
         
         connectToDB();
-        
+        System.out.println("teamScoreCalculation INSIDE");
         try
         {
             //Calculating the sum from the query below
@@ -112,7 +112,9 @@ public class DbUtils
             while (resultSet.next()) 
             {
                 //Assign the sum to finalScore Variable
+                System.out.println("FINAL SCORE STRING" + resultSet.getString(1));
                 finalScore = Integer.parseInt(resultSet.getString(1));
+                System.out.println("FINAL SCORE" + finalScore);
             }
             
         }

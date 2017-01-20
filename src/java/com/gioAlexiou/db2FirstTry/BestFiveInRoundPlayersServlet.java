@@ -54,6 +54,11 @@ public class BestFiveInRoundPlayersServlet extends HttpServlet {
         ArrayList<RetrievedBestFiveData> bestFiveBlocksRetrieved = dbConnection.returnBestFive(selectedRoundNumber, blocksFvColumnName);
         ArrayList<RetrievedBestFiveData> bestFiveAssistsRetrieved = dbConnection.returnBestFive(selectedRoundNumber, assistsColumnName);
         
+        for (int i=0; i<bestFivePirRetrieved.size(); i++)
+        {
+            System.out.println("Best Five Player ID: " + bestFivePirRetrieved.get(i).playerId);
+        }
+        
         ArrayList<BestFiveInRound> bestFivePirToDisplay = bestFiveToDisplay(bestFivePirRetrieved);
         ArrayList<BestFiveInRound> bestFivePointsToDisplay = bestFiveToDisplay(bestFivePointsRetrieved);
         ArrayList<BestFiveInRound> bestFiveReboundsToDisplay = bestFiveToDisplay(bestFiveReboundsRetrieved);
@@ -61,6 +66,7 @@ public class BestFiveInRoundPlayersServlet extends HttpServlet {
         ArrayList<BestFiveInRound> bestFiveAssistsToDisplay = bestFiveToDisplay(bestFiveAssistsRetrieved);
         
         //Step 3: Add Students to request object
+        request.setAttribute("roundNumberSelected", selectedRoundNumber);
         request.setAttribute("round_number_arraylist", allRounds);
         request.setAttribute("best5InIndexRatingArraylist", bestFivePirToDisplay);
         request.setAttribute("best5InPointsArraylist", bestFivePointsToDisplay);
@@ -125,9 +131,10 @@ public class BestFiveInRoundPlayersServlet extends HttpServlet {
         }
         
         ArrayList<BestFiveInRound> bestFiveToDisplay =  new ArrayList<>();
-        BestFiveInRound bestFiveItem = new BestFiveInRound();
+        BestFiveInRound bestFiveItem;
         for (int i=0; i<retrievedBestFiveData.size(); i++)
         {
+            bestFiveItem = new BestFiveInRound();
             bestFiveItem.setRowNumber(retrievedBestFiveData.get(i).rowNumber);
             bestFiveItem.setStatistic(retrievedBestFiveData.get(i).statistic);
             bestFiveItem.setPlayerName(retrievedPlayerInfo.get(i).name);

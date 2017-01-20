@@ -16,7 +16,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		
-		<title>Databases 2 / Best 5 of Round ${selectedRoundNumber}</title>
+		<title>Databases 2 / Best 5 of Round ${roundNumberSelected}</title>
 		
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
@@ -46,7 +46,7 @@
                                       <label for="example-search-input" class="col-md-2 col-form-label">Select Round:</label>
                                       <div class="col-md-8">
                                                     <select  class="form-control text-center" id="testMe" name="roundNumberSelected">
-                                                            <c:forEach var="tempRoudNumber" items="${round_number_arraylist}">
+                                                            <c:forEach var="tempRoundNumber" items="${round_number_arraylist}">
                                                                     <option>${tempRoundNumber}</option>
                                                             </c:forEach>
                                                     </select>
@@ -56,6 +56,10 @@
                                       </div>
                                     </div>
                     </form>
+                
+                        <div class="row">
+				<h1 class="display-3">Round ${roundNumberSelected}</h1>
+			</div>
 			
 			<div class="row">
 				<h3 class="display-5">Best 5 in Index Rating</h3>
@@ -105,7 +109,7 @@
 				    <c:forEach var="best5InPointsItem" items="${requestScope.best5InPointsArraylist}" > 
 	                    <tr>
 	                      <td>${best5InPointsItem.rowNumber}</td>
-                              <td>${best5InIndexRatingItem.statistic}</td>
+                              <td>${best5InPointsItem.statistic}</td>
 	                      <td>${best5InPointsItem.playerName}</td>
 	                      <td>${best5InPointsItem.playerTeam}</td>
 	                      <td>${best5InPointsItem.playerNationality}</td>
@@ -134,7 +138,7 @@
 				    <c:forEach var="best5InReboundsItem" items="${requestScope.best5InReboundsArrayList}" > 
 	                    <tr>
 	                      <td>${best5InReboundsItem.rowNumber}</td>
-                              <td>${best5InIndexRatingItem.statistic}</td>
+                              <td>${best5InReboundsItem.statistic}</td>
 	                      <td>${best5InReboundsItem.playerName}</td>
 	                      <td>${best5InReboundsItem.playerTeam}</td>
 	                      <td>${best5InReboundsItem.playerNationality}</td>
@@ -162,11 +166,11 @@
 				  <tbody>
 				    <c:forEach var="best5InBlocksItem" items="${requestScope.best5InBlocksArrayList}" > 
 	                    <tr>
-	                      <td>${best5InReboundsItem.rowNumber}</td>
-                              <td>${best5InIndexRatingItem.statistic}</td>
-	                      <td>${best5InReboundsItem.playerName}</td>
-	                      <td>${best5InReboundsItem.playerTeam}</td>
-	                      <td>${best5InReboundsItem.playerNationality}</td>
+	                      <td>${best5InBlocksItem.rowNumber}</td>
+                              <td>${best5InBlocksItem.statistic}</td>
+	                      <td>${best5InBlocksItem.playerName}</td>
+	                      <td>${best5InBlocksItem.playerTeam}</td>
+	                      <td>${best5InBlocksItem.playerNationality}</td>
 	                    </tr>
 					</c:forEach>
 				  </tbody>
@@ -192,7 +196,7 @@
 				    <c:forEach var="best5inAssitsItem" items="${requestScope.best5InAssitsArrayList}" > 
 	                    <tr>
 	                      <td>${best5inAssitsItem.rowNumber}</td>
-                              <td>${best5InIndexRatingItem.statistic}</td>
+                              <td>${best5inAssitsItem.statistic}</td>
 	                      <td>${best5inAssitsItem.playerName}</td>
 	                      <td>${best5inAssitsItem.playerTeam}</td>
 	                      <td>${best5inAssitsItem.playerNationality}</td>
@@ -210,7 +214,7 @@
 			  <ol class="breadcrumb">
 			  	<li class="breadcrumb-item"><a href="/DB2FirstTry/index.html">Home</a></li>
 			  	<li class="breadcrumb-item"><a href="/DB2FirstTry/MoreServlet">Analytics</a></li>
-			  	<li class="breadcrumb-item active">Best 5 of Round ${selectedRoundNumber}</li>
+			  	<li class="breadcrumb-item active">Best 5 of Round ${roundNumberSelected}</li>
 			  </ol>
 			</div>
 		  

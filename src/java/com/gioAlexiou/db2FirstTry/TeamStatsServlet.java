@@ -70,17 +70,17 @@ public class TeamStatsServlet extends HttpServlet {
 
         //Calculate Team's wins and loees
         Game thisGame = null;
-        GameStatus thisGameStatus = new GameStatus();
+        GameStatus thisGameStatus;
         int wins = 0;
         int loses = 0;
         for (int i=0; i<teamGames.size(); i++)
         {
             thisGame = dbConnection.searchSpecificGameForTheTeam(teamGames.get(i).gameId);
-
             //Find the Score for this Game
             int homeScore = dbConnection.teamScoreCalculation(teamGames.get(i).homeTeam, teamGames.get(i).gameId);
             int awayScore = dbConnection.teamScoreCalculation(teamGames.get(i).awayTeam, teamGames.get(i).gameId);
 
+            thisGameStatus = new GameStatus();
             thisGameStatus.setHomeTeam(teamGames.get(i).homeTeam);
             thisGameStatus.setAwayTeam(teamGames.get(i).awayTeam);
             thisGameStatus.setId(Integer.toString(i+1));

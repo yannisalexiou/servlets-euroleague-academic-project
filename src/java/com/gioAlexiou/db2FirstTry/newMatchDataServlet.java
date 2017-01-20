@@ -331,7 +331,7 @@ public class newMatchDataServlet extends HttpServlet {
                 String insertToGameData = "INSERT INTO GAMEDATA(GAMEID, PLAYERID, MININGAME, POINTS, TWOPOINTS, THREEPOINTS, FREETHROW, REBOUNDOFF, REBOUNDDEF, REBOUNDTOTAL, ASSIST, STEAL, MISTAKE, BLOCKFV, BLOCKAG, FOULCM, FOULRV, PIR) values('" 
                     + id + "',(SELECT ID FROM PLAYER WHERE NUM=? AND NAME=?),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 
-                PreparedStatement ps = conn.prepareStatement(insertToGameData);
+                PreparedStatement preparedStatement = conn.prepareStatement(insertToGameData);
                 
                 for (int i = 0; i < mydata.length; i++) 
                 {
@@ -344,12 +344,12 @@ public class newMatchDataServlet extends HttpServlet {
                             mydata[i]= Integer.toString(sum);
                         }
                     }
-                    ps.setString(i + 1, mydata[i]); //Insert στη σωστη σειρά
+                    preparedStatement.setString(i + 1, mydata[i]); //Insert στη σωστη σειρά
                         
                 }
                 
                 // execute insert SQL stetement
-                int executeUpdate = ps.executeUpdate();
+                int executeUpdate = preparedStatement.executeUpdate();
                 
                 System.out.println("Record is inserted into GAMEDATA table!");
             }

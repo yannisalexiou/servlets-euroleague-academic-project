@@ -381,9 +381,11 @@ public class DbUtils
         connectToDB();
         ArrayList<RetrievedBestFiveData> bestFive = new ArrayList<>();
         
-        String bestFiveQuery = "SELECT * FROM (SELECT PLAYERID, \'" + category + "\' FROM GAMEDATA WHERE GAMEID IN (SELECT ID FROM GAME WHERE ROUND =\'" + round + "\') ORDER BY \'" + category + "\' DESC) WHERE ROWNUM <=5";
+        String bestFiveQuery = "SELECT * FROM (SELECT PLAYERID, " + category + " FROM GAMEDATA WHERE GAMEID IN (SELECT ID FROM GAME WHERE ROUND =" + round + ") ORDER BY " + category + " DESC) WHERE ROWNUM <=5";
+        System.out.println(bestFiveQuery);
         try 
         {
+            System.out.println("returnBestFive inside try");
             statement = conn.createStatement();
             resultSet = statement.executeQuery(bestFiveQuery);
             int rowNumber = 1;
@@ -395,6 +397,7 @@ public class DbUtils
                 returnStatement.statistic = resultSet.getInt(2);
                 bestFive.add(returnStatement);
                 rowNumber = rowNumber + 1;
+                System.out.println("WHILE INSIDE: " + returnStatement.playerId);
             }
             statement.close();
         } catch (SQLException ex) {
